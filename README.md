@@ -1,2 +1,8 @@
 # pyverage
-Decentralized Voronoi Coverage for Multi-Robot Systems with Python.
+Distributed Voronoi Coverage for Multi-Robot Systems with Python.
+
+## Installation
+```
+cd pyverage/
+pip install -e .
+```
