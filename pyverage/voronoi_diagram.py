@@ -3,7 +3,7 @@ import numpy as np
 import scipy as sp
 from matplotlib.path import Path
 
-class VoronoiDiagram:
+class Voronoi:
     def __init__(self, bounding_box):
         self.bounding_box = bounding_box
         self.robots = np.array([]) # This will be a list of Robot instances
@@ -156,11 +156,13 @@ class VoronoiDiagram:
                 unique_data.append(sorted_points[i])
         voronoi = np.array(unique_data)
         # Compute the centorid of the voronoi cell
-        voronoi_centroid = self.compute_centroid_custom(voronoi, mean, cov)
+        if not mean is None and not cov is None:
+            centroid = self.compute_centroid_custom(voronoi, mean, cov)
+            self.voronoi_data.append({"robot": robot, "voronoi": voronoi, "centroid": centroid})
+        else:
+            self.voronoi_data.append({"robot": robot, "voronoi": voronoi})
 
-        self.voronoi_data.append({"robot": robot, "voronoi": voronoi, "centroid": voronoi_centroid, "vor": vor})
-
-    def voronoi(self, mean, cov):
+    def diagram(self, mean=None, cov=None):
         """
         Explanation of the algorithm:
         Compute the local voronoi diagram for each robot given the mean and covariance of the gaussian distribution of
