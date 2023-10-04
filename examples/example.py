@@ -12,7 +12,7 @@ MEAN = (15, 15)
 VAR = 2
 PERIOD = 200
 
-bbox = BoundingBox(0, 0, 20, 20)
+bbox = BoundingBox(0, 0, 50, 50)
 voronoi = Voronoi(bbox)
 # Generate random agents with sensing range of 
 agents = np.array([[1, 1, 2], [5, 5, 2], [2, 1, 2], [19, 19, 2]])
