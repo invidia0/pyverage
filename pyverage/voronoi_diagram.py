@@ -259,7 +259,7 @@ class Voronoi:
         vor = sp.spatial.Voronoi(points)
         # Filter regions
         vor.filtered_points = robot_positions
-        vor.filtered_regions = np.array(vor.regions)[vor.point_region[:vor.npoints//5]]
+        vor.filtered_regions = np.array(vor.regions, dtype=object)[vor.point_region[:vor.npoints//5]]
         # Cut the Voronoi cells to the perimeter of the robot
         points = np.array([[]])
         intersection_points = np.empty((0, 2))

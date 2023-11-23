@@ -16,7 +16,8 @@ class Robot:
             
         if self.bounding_box:
             self.__set_position(x, y)
-        self.neighbors = []
+        self.neighbors = [] # List of neighbors
+        self.collection = np.empty((0, 3)) # [x, y, value]
 
     def __set_position(self, x, y):
         if self.bounding_box.is_inside(x, y):
